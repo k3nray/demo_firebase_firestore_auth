@@ -11,11 +11,11 @@
 
 <body>
     <header>
-        <h1>Probando Firebase!!!</h1>
+       
     </header>
 
     <main>
-        
+         <h1>Probando Firebase!!!</h1>
         <h2>Formulario de Contacto</h2>
 
         <form id="contactForm">
@@ -30,23 +30,27 @@
 
             <label for="imagen">URL de la Imagen:</label>
             <input type="url" id="imagen"><br>
-
-            <button type="submit">Enviar</button>
-        </form>
-
-        <h2>Lista de Contactos</h2>
-        <div id="contactList"></div>
-
+            
+            <button id="send" type="submit">Enviar</button>
+            
+            
+        </form><br><br>
+        
         <button id="deleteAll">Eliminar Todos los Contactos</button>
 
+        
+        
     </main>
-
+    
+    <div id="contactList">
+    <h2>Lista de Contactos</h2>  
+    </div>
     <footer></footer>
 
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

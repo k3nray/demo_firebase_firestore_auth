@@ -1,10 +1,10 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyCBOya-GzooLAeB3n_apXLwgWurdFsFMfQ",
-  authDomain: "demoweb-b19ba.firebaseapp.com",
-  projectId: "demoweb-b19ba",
-  storageBucket: "demoweb-b19ba.firebasestorage.app",
-  messagingSenderId: "84938500654",
-  appId: "1:84938500654:web:f660c4b01a3fdc095f4dbf"
+  apiKey: "AIzaSyA7RdhALQLJWMKlBy7MNKbqkB1pNdrXN8c",
+  authDomain: "demoweb-3aad9.firebaseapp.com",
+  projectId: "demoweb-3aad9",
+  storageBucket: "demoweb-3aad9.firebasestorage.app",
+  messagingSenderId: "836393979677",
+  appId: "1:836393979677:web:b050195c855f6604409bf4"
 };
 
 // Inicializar Firebase
@@ -19,7 +19,7 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
   let mensaje = document.getElementById('mensaje').value;
   let imagen = document.getElementById('imagen').value;
 
-  db.collection("usuarios").add({
+  db.collection("persona").add({
     nombre,
     email,
     mensaje,
@@ -37,7 +37,7 @@ function mostrarContactos() {
   let contactList = document.getElementById('contactList');
   contactList.innerHTML = '';
 
-  db.collection("usuarios").get().then((dataContact) => {
+  db.collection("persona").get().then((dataContact) => {
     dataContact.forEach((doc) => {
       let contacto = doc.data();
       let div = document.createElement('div');
@@ -68,7 +68,7 @@ function mostrarContactos() {
 }
 
 function borrarContacto(id) {
-  db.collection("usuarios").doc(id).delete()
+  db.collection("persona").doc(id).delete()
     .then(() => {
       console.log("Contacto eliminado de Firestore");
       mostrarContactos();
@@ -77,7 +77,7 @@ function borrarContacto(id) {
 }
 
 function borrarTodos() {
-  db.collection("usuarios").get().then((dataContact) => {
+  db.collection("persona").get().then((dataContact) => {
     dataContact.forEach((doc) => {
       doc.ref.delete();
     });
@@ -87,6 +87,6 @@ function borrarTodos() {
 }
 
 mostrarContactos();
-
+document.getElementById('deleteAll').addEventListener('click', borrarTodos);
 
 
